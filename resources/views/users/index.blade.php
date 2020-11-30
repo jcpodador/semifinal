@@ -10,6 +10,7 @@
             <th>Last Name</th>
             <th>First Name</th>
             <th>Email</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
             <td>{{$u->lname}}</td>
             <td>{{$u->fname}}</td>
             <td>{{$u->email}}</td>
+            <td><a href="{{url('/users/edit', ['id'=>$u])}}" class="btn btn-secondary btn-sm">...</a></td>
         </tr>
 
         @endforeach

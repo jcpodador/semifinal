@@ -1,27 +1,40 @@
 @extends('base')
 
 @section('content')
+@if($info = Session::get('info'))
 
-<h1>List of Users</h1>
+    <div class="card">
+        <div class="card-body bg-success text-white">
+            {{$info}}
+        </div>
+    </div>
+
+@endif
+    <div class="float-right">
+       <a href="{{url('/instructors/create')}}" class="btn btn-primary">
+       Add New Instructor
+       </a>
+    </div>
+
+<h1>Instructors</h1>
+
 <table class="table table-bordered table-striped table-sm">
     <thead>
-        <tr>
-            <th>ID#</th>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Email</th>
-            <th></th>
-        </tr>
+        <th>ID#</th>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Expertise</th>
+        <th></th>
     </thead>
     <tbody>
-        @foreach($users as $u)
+        @foreach($instructors as $i)
 
         <tr>
-            <td>{{$u->id}}</td>
-            <td>{{$u->lname}}</td>
-            <td>{{$u->fname}}</td>
-            <td>{{$u->email}}</td>
-            <td><a href="{{url('/users/edit', ['id'=>$u])}}" class="btn btn-secondary btn-sm">...</a></td>
+            <td>{{$i->id}}</td>
+            <td>{{$i->user->lname}}</td>
+            <td>{{$i->user->fname}}</td>
+            <td>{{$i->aoe}}</td>
+            <td><a href="{{url('/instructors/edit', ['id'=>$i])}}" class="btn btn-secondary btn-sm">...</a></td>
         </tr>
 
         @endforeach

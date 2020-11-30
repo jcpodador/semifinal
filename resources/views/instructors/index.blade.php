@@ -1,6 +1,20 @@
 @extends('base')
 
 @section('content')
+@if($info = Session::get('info'))
+
+    <div class="card">
+        <div class="card-body bg-success text-white">
+            {{$info}}
+        </div>
+    </div>
+
+@endif
+    <div class="float-right">
+       <a href="{{url('/instructors/create')}}" class="btn btn-primary">
+       Add New Instructor
+       </a>
+    </div>
 
 <h1>Instructors</h1>
 
